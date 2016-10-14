@@ -1,0 +1,33 @@
+{
+  "name": "analyrics",
+  "version": "1.0.0",
+  "description": "A tool to fetch song lyrics and analyze them.",
+  "main": "analyrics.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kokuls/analyrics.git"
+  },
+  "keywords": [
+    "lyrics",
+    "analytics",
+    "natural",
+    "language",
+    "processing",
+    "genius",
+    "billboard"
+  ],
+  "author": "Kokul Subendran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kokuls/analyrics/issues"
+  },
+  "homepage": "https://github.com/kokuls/analyrics#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "request": "^2.75.0",
+    "word-freq": "0.0.8"
+  }
+}
