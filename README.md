@@ -1,17 +1,26 @@
 # analyrics
 
+## About
+This node package is for easily retrieving and analyzing song lyrics. Currently the only metric availalbe is frequency of words in a song. However, the end goal is to discover and visualize all sorts of patterns found in music over the years. 
+
+
 ## Getting Started
 This package relies on Genius for the lyrics it analyzes, meaning that you'll have to grab a [Genius API Key](https://docs.genius.com/#/getting-started-h1).
 
 Once you have an API key, go to **lib/config_sample.js** and paste the key inside there. Once this is done, rename **config_sample.js** to **config.js**.
 
+Lastly, require the package in your program as such.
+```javascript
+var analyrics = require("analyrics");
+```
+
 ## Usage
 
-### Fetch Song (`getSong(searchQuery, callback)`)
+### Fetch Song (`analyrics.getSong(searchQuery, callback)`)
 This returns a song object with lyrics and word frequency (sorted in descending order). Here's an example.
 
 ```javascript
-getSong("Can't Take My Eyes off You", function(song) {
+analyrics.getSong("Can't Take My Eyes off You", function(song) {
   console.log(song.lyrics);
   console.log(song.frequency);
 });
@@ -45,11 +54,11 @@ Word frequency is stored in an array
            ...       ]
 ```
 
-### Fetch Billboard Chart (`getBillboard(billboardURL, callback)`)
+### Fetch Billboard Chart (`analyrics.getBillboard(billboardURL, callback)`)
 This returns an array of song objects with the following fields: Rank, Title, Artist, Image URL, Spotify URL (if available). Here is an example.
 
 ```javascript
-getBillboard("http://www.billboard.com/charts/hot-100", function(chart) {
+analyrics.getBillboard("http://www.billboard.com/charts/hot-100", function(chart) {
   console.log(chart);
 });
 ```
