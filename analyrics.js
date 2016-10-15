@@ -8,7 +8,8 @@ function getSong(query, callback) {
 		var songObj = {
 			song: query,
 			lyrics: lyr,
-			frequency: analysis.wordFreq(lyr)
+			frequency: analysis.wordFreq(lyr),
+			sentiment: analysis.sentiment(lyr)
 		};		
 
 		return callback(songObj);
