@@ -98,7 +98,7 @@ analyrics.getBillboard("http://www.billboard.com/charts/hot-100", function(chart
 ```
 
 This is the expected output:
-```
+```javascript
 [ { rank: 1,
     title: 'Closer',
     artist: 'The Chainsmokers Featuring Halsey',
