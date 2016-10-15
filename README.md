@@ -1,10 +1,10 @@
-# analyrics
+# [analyrics](https://www.npmjs.com/package/analyrics)  
 
-## About
-This node package is for easily retrieving and analyzing song lyrics. Currently the only metric availalbe is frequency of words in a song. However, the end goal is to discover and visualize all sorts of patterns found in music over the years. 
+# About
+This node package is for easily retrieving and analyzing song lyrics. Currently the only metric availalbe is frequency of words in a song. However, the end goal is to discover and visualize all sorts of patterns found in music over the years.  
 
 
-## Getting Started
+# Getting Started
 This package relies on Genius for the lyrics it analyzes, meaning that you'll have to grab a [Genius API Key](https://docs.genius.com/#/getting-started-h1).
 
 Once you have an API key, go to **lib/config_sample.js** and paste the key inside there. Once this is done, rename **config_sample.js** to **config.js**.
@@ -14,9 +14,9 @@ Lastly, require the package in your program as such.
 var analyrics = require("analyrics");
 ```
 
-## Usage
+# Usage
 
-### Fetch Song (`analyrics.getSong(searchQuery, callback)`)
+## Fetch Song (`analyrics.getSong(searchQuery, callback)`)
 This returns a song object with lyrics and word frequency (sorted in descending order). Here's an example.
 
 ```javascript
@@ -39,7 +39,8 @@ And I thank God I'm alive
 You're just too good to be true
 Can't take my eyes off of you
 ...
-```
+```   
+
 
 Word frequency is stored in an array
 ```
@@ -54,7 +55,7 @@ Word frequency is stored in an array
            ...       ]
 ```
 
-### Fetch Billboard Chart (`analyrics.getBillboard(billboardURL, callback)`)
+## Fetch Billboard Chart (`analyrics.getBillboard(billboardURL, callback)`)
 This returns an array of song objects with the following fields: Rank, Title, Artist, Image URL, Spotify URL (if available). Here is an example.
 
 ```javascript
@@ -84,7 +85,7 @@ This is the expected output:
 ```
 
 
-Billboard charts can be pulled from several URLs, here are some that I've tested
+Billboard charts can be pulled from several URLs, here are some that I've tested.
 
 | Chart Name    | URL           | 
 | ------------- |:-------------:| 
@@ -94,13 +95,13 @@ Billboard charts can be pulled from several URLs, here are some that I've tested
 | Greatest 100 All Time | http://www.billboard.com/charts/greatest-hot-100-singles |
 
 
-## Coming Soon
+# Coming Soon
 - Sentiment analysis i.e. how postive/negative lyrics are
 - Classifiers for things such as slang, themes, material objects
 - Uniqueness of lyrics
 - Function to fetch lyrics given an album name
 
 
-## License
+# License
 [MIT](https://github.com/kokuls/analyrics/blob/master/LICENSE)
 
