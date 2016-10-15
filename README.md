@@ -1,10 +1,10 @@
 # [analyrics](https://www.npmjs.com/package/analyrics)  
 
-# About
-This node package is for easily retrieving and analyzing song lyrics. Currently the only metric availalbe is frequency of words in a song. However, the end goal is to discover and visualize all sorts of patterns found in music over the years.  
+## About
+This node package is for easily retrieving and analyzing song lyrics. Currently the metrics availalbe for songs are frequency of words, and the overall sentiment (postivity/negativity). However, the end goal is to discover and visualize all sorts of patterns found in music over the years.  
 
 
-# Getting Started
+## Getting Started
 This package relies on Genius for the lyrics it analyzes, meaning that you'll have to grab a [Genius API Key](https://docs.genius.com/#/getting-started-h1).
 
 Once you have an API key, go to **lib/config_sample.js** and paste the key inside there. Once this is done, rename **config_sample.js** to **config.js**.
@@ -14,15 +14,16 @@ Lastly, require the package in your program as such.
 var analyrics = require("analyrics");
 ```
 
-# Usage
+## Usage
 
-## Fetch Song (`analyrics.getSong(searchQuery, callback)`)
-This returns a song object with lyrics and word frequency (sorted in descending order). Here's an example.
+### Fetch Song (`analyrics.getSong(searchQuery, callback)`)
+This returns a song object with lyrics, word frequency, and sentiment. Here's an example.
 
 ```javascript
 analyrics.getSong("Can't Take My Eyes off You", function(song) {
   console.log(song.lyrics);
   console.log(song.frequency);
+  console.log(song.sentiment);
 });
 ```
 
@@ -43,7 +44,7 @@ Can't take my eyes off of you
 
 
 Word frequency is stored in an array
-```
+```javascript
 [ { w: 'baby', c: 7 },
   { w: 'love', c: 4 },
   { w: 'good', c: 3 },
@@ -55,7 +56,39 @@ Word frequency is stored in an array
            ...       ]
 ```
 
-## Fetch Billboard Chart (`analyrics.getBillboard(billboardURL, callback)`)
+The sentiment of lyrics is stored in an object that contains the score and arrays of positive and negative words. The sign of the score correlates to the overall sentiment of the lyrics. (Score = Positive Words - Negative Words).
+```javascript
+{ score: 14,
+  comparative: 0.0958904109589041,
+  positive:
+   { score: 15,
+     comparative: 0.10273972602739725,
+     words:
+      [ 'good',
+        'like',
+        'heaven',
+        'love',
+        'thank',
+        'good',
+        'like',
+        'good',
+        'warm',
+        'love',
+        'trust',
+        'pretty',
+        'pretty',
+        'love',
+        'love' ] },
+  negative:
+   { score: 1,
+     comparative: 0.00684931506849315,
+     words: [ 'lonely' ] } }
+
+```  
+
+
+
+### Fetch Billboard Chart (`analyrics.getBillboard(billboardURL, callback)`)
 This returns an array of song objects with the following fields: Rank, Title, Artist, Image URL, Spotify URL (if available). Here is an example.
 
 ```javascript
@@ -95,13 +128,12 @@ Billboard charts can be pulled from several URLs, here are some that I've tested
 | Greatest 100 All Time | http://www.billboard.com/charts/greatest-hot-100-singles |
 
 
-# Coming Soon
-- Sentiment analysis i.e. how postive/negative lyrics are
+## Coming Soon
 - Classifiers for things such as slang, themes, material objects
 - Uniqueness of lyrics
 - Function to fetch lyrics given an album name
 
 
-# License
+## License
 [MIT](https://github.com/kokuls/analyrics/blob/master/LICENSE)
 
