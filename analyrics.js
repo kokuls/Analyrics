@@ -3,26 +3,17 @@ var charts = require("./lib/charts");
 var analysis = require("./lib/analysis");
 
 function getSong(query, callback) {
-	lyrics.getSongLyrics(query, function(lyr) {
-		lyr = analysis.format(lyr);
-		var songObj = {
-			song: query,
-			lyrics: lyr,
-			frequency: analysis.wordFreq(lyr),
-			sentiment: analysis.sentiment(lyr)
-		};		
-
-		return callback(songObj);
-	});
+    lyrics.getSongLyrics(query, function(songObj) {
+        songObj.frequency = analysis.wordFreq(songObj.lyrics);
+        songObj.sentiment = analysis.sentiment(songObj.lyrics);
+        return callback(songObj);
+    });
 }
 
 function getBillboard(url, callback) {
-	charts.getSongs(url, function(songs) {
-		for (var i = 0; i < songs.length; ++i) {
-			var query = songs[i].title;	
-		}   
-		return callback(songs)
-	});
+    charts.getSongs(url, function(chart) {
+        return callback(chart)
+    });
 }
 
 module.exports.getSong = getSong;
