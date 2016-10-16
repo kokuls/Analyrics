@@ -17,10 +17,13 @@ var analyrics = require("analyrics");
 ## Usage
 
 ### Fetch Song (`analyrics.getSong(searchQuery, callback)`)
-This returns a song object with lyrics, word frequency, and sentiment. Here's an example.
+This returns a song object with title, artist, source url, lyrics, word frequency, and sentiment. Here's an example.
 
 ```javascript
 analyrics.getSong("Can't Take My Eyes off You", function(song) {
+  console.log(song.title);
+  console.log(song.artist);
+  console.log(song.url);
   console.log(song.lyrics);
   console.log(song.frequency);
   console.log(song.sentiment);
@@ -28,6 +31,13 @@ analyrics.getSong("Can't Take My Eyes off You", function(song) {
 ```
 
 This is the output from the function above:
+
+The output for the title, artist, and source of lyrics (url):
+```
+Can't Take My Eyes Off You
+Lauryn Hill
+http://genius.com/Lauryn-hill-cant-take-my-eyes-off-you-lyrics
+```
 
 Song lyrics are stored in a single string
 ```
