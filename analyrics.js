@@ -18,3 +18,4 @@ function getBillboard(url, callback) {
 
 module.exports.getSong = getSong;
 module.exports.getBillboard = getBillboard;
+module.exports.setToken = lyrics.setToken;
