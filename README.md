@@ -1,23 +1,21 @@
 # [analyrics](https://www.npmjs.com/package/analyrics)  
 
 ## About
-This node package is for easily retrieving and analyzing song lyrics. Currently the metrics availalbe for songs are frequency of words, and the overall sentiment (postivity/negativity). However, the end goal is to discover and visualize all sorts of patterns found in music over the years.  
-
-
+This node package is for easily retrieving and analyzing song lyrics. Currently, the metrics available for songs are the frequency of words, and the overall sentiment (positivity/negativity). However, the end goal is to discover and visualize all sorts of patterns found in music over the years.
+ 
 ## Getting Started
 This package relies on Genius for the lyrics it analyzes, meaning that you'll have to grab a [Genius API Key](https://docs.genius.com/#/getting-started-h1).
 
-Once you have an API key, go to **lib/config_sample.js** and paste the key inside there. Once this is done, rename **config_sample.js** to **config.js**.
-
-Lastly, require the package in your program as such.
+Then just load the package into your program and set the key as shown below.
 ```javascript
 var analyrics = require("analyrics");
+analyrics.setToken("your_api_key");
 ```
 
 ## Usage
 
 ### Fetch Song (`analyrics.getSong(searchQuery, callback)`)
-This returns a song object with title, artist, source url, lyrics, word frequency, and sentiment. Here's an example.
+This returns a song object with a title, artist, source URL, lyrics, word frequency, and sentiment. Here's an example.
 
 ```javascript
 analyrics.getSong("Can't Take My Eyes off You", function(song) {
